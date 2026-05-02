@@ -1,0 +1,381 @@
+/* ===== PRODUCT CARD ===== */
+.card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cardImageWrap {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #f0ede9;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.card:hover .cardImage { transform: scale(1.04); }
+
+.badge {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  background: var(--color-secondary);
+  color: var(--color-light);
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.cardHoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,26,26,0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: var(--spacing-lg);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+.card:hover .cardHoverOverlay { opacity: 1; }
+
+.quickAdd {
+  padding: 0.6rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: translateY(8px);
+  transition: all var(--transition-normal);
+}
+.card:hover .quickAdd { transform: translateY(0); }
+.quickAdd:hover { opacity: 0.9; }
+
+.cardBody {
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.cardBrand {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.cardName {
+  font-size: var(--font-size-base);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.cardDesc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cardColors {
+  display: flex;
+  gap: 6px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.colorDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  flex-shrink: 0;
+}
+.colorDot:hover { transform: scale(1.15); }
+.colorDotSelected {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardPrices {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+}
+
+.cardPrice {
+  font-size: var(--font-size-lg);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+}
+
+.cardOriginalPrice {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  text-decoration: line-through;
+}
+
+.cardRating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+.star { color: var(--color-accent); }
+.reviewCount { color: var(--color-text-light); }
+
+/* ===== FILTER PANEL ===== */
+.filterPanel {
+  padding: var(--spacing-xl) 0;
+}
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.filterTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.resetBtn {
+  font-size: var(--font-size-xs);
+  color: var(--color-secondary);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  letter-spacing: 0.05em;
+  transition: opacity var(--transition-fast);
+}
+.resetBtn:hover { opacity: 0.7; }
+
+.filterGroup {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filterGroupLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.filterOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.filterChip {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.03em;
+}
+.filterChip:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.filterChipActive {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-accent);
+}
+
+/* ===== MODAL ===== */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,26,26,0.75);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  animation: fadeIn 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-md);
+  max-width: 820px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: scaleIn 0.3s ease;
+}
+
+.modalClose {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  background: rgba(26,26,26,0.7);
+  color: var(--color-light);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast);
+}
+.modalClose:hover { background: var(--color-primary); }
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modalImageWrap {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalContent {
+  padding: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.modalTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--fw-light);
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.modalDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+.modalPrices {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-md);
+}
+
+.modalPrice {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+}
+
+.modalSection {}
+
+.modalSectionLabel {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sizeGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.sizeBtn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+.sizeBtn:hover { border-color: var(--color-accent); }
+.sizeBtnActive { background: var(--color-primary); color: var(--color-accent); border-color: var(--color-primary); }
+.sizeBtnOut { opacity: 0.35; text-decoration: line-through; cursor: not-allowed; }
+
+.addToCartBtn {
+  padding: 0.85rem 2rem;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  margin-top: auto;
+}
+.addToCartBtn:hover { background: transparent; color: var(--color-primary); }
+
+.modalMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 767px) {
+  .modalGrid { grid-template-columns: 1fr; }
+  .modalImageWrap { aspect-ratio: 4/3; }
+  .modalContent { padding: var(--spacing-lg); }
+}
