@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/senua-ecommerce/',
+  base: '/senua/',
   build: {
     outDir: 'dist',
     sourcemap: false
